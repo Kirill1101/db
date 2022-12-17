@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "russkih_203"
+      POSTGRES_USER: "russkih_203"
+      POSTGRES_PASSWORD: "russkih_203"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./docker/db/scripts:/docker-entrypoint-initdb.d
+      - ./dz:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
